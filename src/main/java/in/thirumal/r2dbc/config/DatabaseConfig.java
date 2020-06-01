@@ -23,4 +23,16 @@ public class DatabaseConfig extends AbstractR2dbcConfiguration {
 		return ConnectionFactories.get("r2dbc:postgresql://localhost:5432/poll");
 	}
 
+	/*@Override
+	public ConnectionFactory connectionFactory() {
+		return ConnectionFactories.get(new PostgresqlConnectionFactory(
+                PostgresqlConnectionConfiguration.builder()
+                .host("localhost")
+                .port(5432)
+                .username("postgres")
+                .password("thirumal")
+                .database("poll")
+                .build()););
+	}*/
+
 }
