@@ -15,7 +15,7 @@ import io.r2dbc.spi.ConnectionFactory;
  *
  */
 @Configuration
-//@EnableR2dbcRepositories
+@EnableR2dbcRepositories
 public class DatabaseConfig extends AbstractR2dbcConfiguration {
 
 	@Override
