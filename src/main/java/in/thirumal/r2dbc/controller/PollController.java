@@ -8,6 +8,7 @@ import in.thirumal.r2dbc.dao.PollRepository;
 import in.thirumal.r2dbc.model.GenericCd;
 import in.thirumal.r2dbc.model.Poll;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class PollController {
@@ -29,8 +30,21 @@ public class PollController {
 		 return pollRepository.findAll();
     }
 	
+	@GetMapping("/poll-1")
+    public Mono<Poll> get() {
+		System.out.println((Poll)pollRepository.findById(1L).subscribe());
+		 return pollRepository.findById(1L);
+    }
+	
+	@GetMapping("/poll-count")
+    public Mono<Long> count() {
+		System.out.println("count");
+		return pollRepository.count();
+    }
+	
 	@GetMapping("/cd")
     public Flux<GenericCd> listGenericCd() {
-		 return genericCdRepository.findAll();
+		//genericCdRepository.findAll().toStream().forEach(a->a.);
+		return genericCdRepository.findAll();
     }
 }

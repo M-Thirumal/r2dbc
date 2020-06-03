@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -26,7 +27,7 @@ public class GenericCd implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -5543465891281870604L;
-	@Column("generic_cd")
+	@Id@Column("generic_cd")
 	private Long genericCd;
 	@Column("code")
 	private String code;

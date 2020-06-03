@@ -33,7 +33,8 @@ public class Poll implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 8349828504401322494L;
-	@Id@Column("poll_id")
+	@Id
+	@Column("poll_id")
 	private Long pollId;
 	@Column("election_cd")
 	private Long electionCd;
