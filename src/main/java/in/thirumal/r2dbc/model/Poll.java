@@ -27,7 +27,7 @@ import lombok.ToString;
 @AllArgsConstructor@NoArgsConstructor
 @ToString@Builder
 @Table("public.poll")
-public class Poll implements Serializable{
+public class Poll implements Serializable {
 
 	/**
 	 * 

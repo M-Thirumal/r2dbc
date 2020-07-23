@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import in.thirumal.r2dbc.dao.GenericCdRepository;
 import in.thirumal.r2dbc.dao.PollRepository;
+import in.thirumal.r2dbc.dao.TestRepository;
 import in.thirumal.r2dbc.model.GenericCd;
 import in.thirumal.r2dbc.model.Poll;
+import in.thirumal.r2dbc.model.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -15,14 +17,16 @@ public class PollController {
 
 	private PollRepository pollRepository;
 	private GenericCdRepository genericCdRepository;
-	
+
+	private TestRepository testRepository;
 	/**
 	 * @param pollRepository
 	 */
-	public PollController(PollRepository pollRepository, GenericCdRepository genericCdRepository) {
+	public PollController(PollRepository pollRepository, GenericCdRepository genericCdRepository,  TestRepository testRepository) {
 		super();
 		this.pollRepository = pollRepository;
 		this.genericCdRepository = genericCdRepository;
+		this.testRepository = testRepository;
 	}
 
 	@GetMapping("/poll")
@@ -32,7 +36,7 @@ public class PollController {
 	
 	@GetMapping("/poll-1")
     public Mono<Poll> get() {
-		System.out.println((Poll)pollRepository.findById(1L).subscribe());
+	//	System.out.println(pollRepository.findById(1L).block());
 		 return pollRepository.findById(1L);
     }
 	
@@ -44,7 +48,26 @@ public class PollController {
 	
 	@GetMapping("/cd")
     public Flux<GenericCd> listGenericCd() {
-		//genericCdRepository.findAll().toStream().forEach(a->a.);
+		System.out.println("s");
+		genericCdRepository.findAll().log().doOnSubscribe(a->System.out.println("dsads" +a));
+		System.out.println("d");
 		return genericCdRepository.findAll();
     }
+	
+
+	@GetMapping("/test")
+    public Mono<Test> test() {
+		System.out.println("count");
+		return testRepository.findById(1L);
+    }
+	
+
+	@GetMapping("/test-all")
+    public Flux<Test> testAll() {
+		//DatabaseClient client = DatabaseClient.create(databaseConfig.connectionFactory());
+		//return client.select().from(Test.class).fetch().all();
+		System.out.println("count");
+		return testRepository.findAll();
+    }
+	
 }

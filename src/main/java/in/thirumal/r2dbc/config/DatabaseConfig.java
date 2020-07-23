@@ -34,5 +34,18 @@ public class DatabaseConfig extends AbstractR2dbcConfiguration {
                 .database("poll")
                 .build()););
 	}*/
+	/*
+	@Override
+	public ConnectionFactory connectionFactory() {
+		
+		return ConnectionFactories.get(ConnectionFactoryOptions.builder()
+				.option(ConnectionFactoryOptions.DRIVER, "postgresql")
+				   .option(ConnectionFactoryOptions.HOST, "localhost")
+				   .option(ConnectionFactoryOptions.PORT, 5432)  // optional, defaults to 5432
+				   .option(ConnectionFactoryOptions.USER, "postgres")
+				   .option(ConnectionFactoryOptions.PASSWORD, "thirumal")
+				   .option(ConnectionFactoryOptions.DATABASE, "poll")  // optional
+                .build());
+	}*/
 
 }
