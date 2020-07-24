@@ -57,8 +57,16 @@ public class PollController {
 
 	@GetMapping("/test")
     public Mono<Test> test() {
-		System.out.println("count");
-		return testRepository.findById(1L);
+		testRepository.findById(3L).subscribe(v->System.out.println("Value: " + v.toString()));
+		testRepository.findById(1L);
+		return testRepository.findById(4L);
+    }
+	
+	@GetMapping(value = "/test1", produces="application/json")
+    public Test test1() {
+		testRepository.findById(3L).subscribe(v->System.out.println("Value: " + v.toString()));
+		testRepository.findById(1L);
+		return new Test(5l, "Thirumal");
     }
 	
 
