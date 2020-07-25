@@ -61,14 +61,7 @@ public class PollController {
 		testRepository.findById(1L);
 		return testRepository.findById(4L);
     }
-	
-	@GetMapping(value = "/test1", produces="application/json")
-    public Test test1() {
-		testRepository.findById(3L).subscribe(v->System.out.println("Value: " + v.toString()));
-		testRepository.findById(1L);
-		return new Test(5l, "Thirumal");
-    }
-	
+		
 
 	@GetMapping("/test-all")
     public Flux<Test> testAll() {

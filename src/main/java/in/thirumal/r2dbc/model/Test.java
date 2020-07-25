@@ -5,9 +5,13 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-@Data
+@Data@NoArgsConstructor@AllArgsConstructor
+@ToString
 @Table("public.test")
 public class Test implements Serializable{
 
@@ -20,14 +24,6 @@ public class Test implements Serializable{
 	private Long id;
 	
 	private String name;
-
-	public Test() {
-	}
-
-	public Test(Long id, String name) {
-		this.id = id;
-		this.name = name;
-	}
 
 	public Long getId() {
 		return id;
@@ -44,11 +40,5 @@ public class Test implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	@Override
-	public String toString() {
-		return "Test [id=" + id + ", name=" + name + "]";
-	}
-
 	
 }

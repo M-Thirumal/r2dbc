@@ -8,19 +8,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Data
 @Table("look_up.generic_cd")
-@Getter@Setter
-@NoArgsConstructor@AllArgsConstructor
-@ToString@Builder
 public class GenericCd implements Serializable {
 
 	/**
@@ -47,4 +38,64 @@ public class GenericCd implements Serializable {
 	private String rowUpdateInfo;
 	@Column("parent_generic_cd")
 	private Long parentGenericCd;
+	public Long getGenericCd() {
+		return genericCd;
+	}
+	public void setGenericCd(Long genericCd) {
+		this.genericCd = genericCd;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
+	public LocalDateTime getRowCreationTime() {
+		return rowCreationTime;
+	}
+	public void setRowCreationTime(LocalDateTime rowCreationTime) {
+		this.rowCreationTime = rowCreationTime;
+	}
+	public String getRowCreatedBy() {
+		return rowCreatedBy;
+	}
+	public void setRowCreatedBy(String rowCreatedBy) {
+		this.rowCreatedBy = rowCreatedBy;
+	}
+	public String getRowUpdatedBy() {
+		return rowUpdatedBy;
+	}
+	public void setRowUpdatedBy(String rowUpdatedBy) {
+		this.rowUpdatedBy = rowUpdatedBy;
+	}
+	public LocalDateTime getRowUpdateTime() {
+		return rowUpdateTime;
+	}
+	public void setRowUpdateTime(LocalDateTime rowUpdateTime) {
+		this.rowUpdateTime = rowUpdateTime;
+	}
+	public String getRowUpdateInfo() {
+		return rowUpdateInfo;
+	}
+	public void setRowUpdateInfo(String rowUpdateInfo) {
+		this.rowUpdateInfo = rowUpdateInfo;
+	}
+	public Long getParentGenericCd() {
+		return parentGenericCd;
+	}
+	public void setParentGenericCd(Long parentGenericCd) {
+		this.parentGenericCd = parentGenericCd;
+	}
 }
